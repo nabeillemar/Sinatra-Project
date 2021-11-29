@@ -1,0 +1,29 @@
+Welcome, <%=@user.name%>
+
+<br><br>
+<%@user.clients.all.each do |client|%>
+<br><br>
+Client Name:<%=client.name%>
+<br><br>
+Enrollment Date:<%=client.enrollment_date%>
+<br><br>
+Casenote:<%=client.case_note%>
+<br><br>
+
+ID:<%=client.id%>
+<br><br>
+UserID:<%=@user.id%>
+
+<a href="/clients/<%=client.id%>/edit">Edit client</a>
+
+<a href="/clients/<%=client.id%>">show client</a>
+
+<%end%>
+<br>
+<br>
+
+<a href="/clients/new">Create new client</a>
+<br>
+<br>
+
+<a href="/logout">Logout</a>

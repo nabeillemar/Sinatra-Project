@@ -1,0 +1,27 @@
+<% if Helpers.is_logged_in?(session)%>
+
+<h1>Fill out the information below to create your client</h1>
+ <br><br>
+ <form action="/clients/" method="POST">
+ <label for="client_name">Client Name:</label>
+ <input type="text" name="client[name]" id="client_name">
+
+<br><br>
+ <label for="enrollment_date">Enrollment Date:</label>
+ <input type="date" name="client[enrollment_date]" id="enrollment_date">
+
+<br><br>
+ <label for="case_note">Case note:</label>
+ <textarea id="case_note" name="client[case_note]" rows="4" cols="50"> </textarea>
+
+<br><br>
+
+<input type="submit" name="submit" id="submit">
+
+
+
+ </form>
+
+<% else %>
+      <h1> error </h1>
+  <% end %>

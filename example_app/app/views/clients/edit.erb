@@ -1,0 +1,28 @@
+
+<form action="/clients/<%=@client.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <br>
+    <br><br><label>Edit Name: </label>
+    <input type="text" name="client[name]" id="client_name" value="<%=@client.name%>">
+    <br><br><label>Edit Date: </label>
+    <input type="date" name="client[enrollment_date]" id="enrollment_date" value="<%=@client.enrollment_date%>">
+    <br><br><label>Edit Case Note: </label>
+    <textarea id="case_note" name="client[case_note]" rows="4" cols="50"> <%=@client.case_note%> </textarea>
+    <br><br><input type="submit" value="Edit Client" name="submit">
+    </form>
+
+
+<br><br>
+<form action="/clients/<%= @client.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+
+
+<br><br>
+
+<a href='/clients/'>HomePage</a>
+
+<br><br>
+
+<a href="/logout">Logout</a>
