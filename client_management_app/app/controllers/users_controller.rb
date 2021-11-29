@@ -1,38 +1,38 @@
 class UsersController < ApplicationController
 
     get '/signup' do 
-        if logged_in? #checking if you are logged in 
-            redirect '/clients/' #if you are then you will be redirected to the your homepage 
+        if logged_in? 
+            redirect '/clients/' 
         else
-            erb :"/signup" # if not you will go to the sign up page 
+            erb :"/signup" 
         end 
       end
       
-    post '/signup' do #the data is being posted from the signup form 
+    post '/signup' do 
         if @user = User.find_by(email: params[:email])
             redirect to "/signup"
         elsif 
-            params[:username] == "" || params[:password] == "" || params[:name] == ""# if username, name  or the password are empty you will have to enter it again 
+            params[:username] == "" || params[:password] == "" || params[:name] == ""
             redirect to "/signup"
         else 
-         @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password]) #creating a new instance of the user using the data on the form 
-         session[:user_id] = @user.id #creating the session user_id to the @user.id 
+         @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])  
+         session[:user_id] = @user.id 
          redirect '/clients/'
         end 
     end 
 
     get '/login' do 
-        if logged_in? #if you are login you go directly to your homepage
+        if logged_in? 
             redirect '/clients/'
         else 
-            erb :'/login' # if not you will go to the login page 
+            erb :'/login' 
         end 
     end 
 
     post '/login' do 
-        user = User.find_by(username: params[:username]) #assigning user variable to your username 
-        if user && user.authenticate(params[:password]) #checking if the user and the user.password match 
-            session[:user_id] = user.id #making the session[user_id ] match the user.id 
+        user = User.find_by(username: params[:username]) 
+        if user && user.authenticate(params[:password]) 
+            session[:user_id] = user.id 
             redirect '/clients/'
         else 
             redirect '/login'
@@ -49,10 +49,7 @@ class UsersController < ApplicationController
         end 
     end 
  
-    get '/users/:slug' do  #not sure what this is for .... this is used for making the URL easier to read 
-        @user = User.find_by_slug(params[:slug])
-        erb :"/show"
-      end 
+
 
 
 

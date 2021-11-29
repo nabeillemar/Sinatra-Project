@@ -1,26 +1,26 @@
 require './config/environment'
 
-class ApplicationController < Sinatra::Base #getting all the code from Sinatra gem into our Application Controller, then we give the applicationcontroller gem to the other controllers which will also give them sinatra via ApplicationController 
+class ApplicationController < Sinatra::Base 
 
   configure do
-    set :public_folder, 'public' #not sure
-    set :views, 'app/views' # Not sure
-    enable :sessions # enables sessions so we can track users,
-    set :session_secret, "do_not_tell_anyone" #makes sessions private? secure?
+    set :public_folder, 'public' 
+    set :views, 'app/views' 
+    enable :sessions 
+    set :session_secret, "do_not_tell_anyone" 
 
   end
 
-  get "/" do # this takes us welcome page this is part of the URL/URI
-    erb :welcome # this is the view page, Saying when a user goes to the '/' page of our website it will upload this view page or like proccess the code on the view page. (need to edit the view page)
+  get "/" do 
+    erb :welcome 
   end
 
-  helpers do #helper method so we can see if a user is logged_in or not, Makes sense to have it hear so that we can use in both controllers instead of recreating the code in both, (useful for logging out,)
+  helpers do 
   def logged_in?
-    !!session[:user_id] #double bang operator changes it to a boolean and then evaluates it, It is evaluting if the session user ID is true or false. 
+    !!session[:user_id] 
   end 
 
-  def current_user #used to make sure that the only the current user when they are logged in can see their stuff 
-    User.find_by_id(session[:user_id]) #User class in the models, instance method (find_by_id)
+  def current_user  
+    User.find_by_id(session[:user_id]) 
   end 
 
 end 

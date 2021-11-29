@@ -3,20 +3,21 @@ Welcome, <%=@user.name%>
 <br><br>
 <%@user.clients.all.each do |client|%>
 <br><br>
-Client Name:<%=client.name%>
+    Client Name: <%=client.name%>
 <br><br>
-Enrollment Date:<%=client.enrollment_date%>
+    Enrollment Date: <%=client.enrollment_date%>
 <br><br>
-Casenote:<%=client.case_note%>
+    Casenote: <%=client.case_note%>
 <br><br>
 
-ID:<%=client.id%>
-<br><br>
-UserID:<%=@user.id%>
+    Client ID: <%=client.id%>
 
-<a href="/clients/<%=client.id%>/edit">Edit client</a>
+<br><br>
+<a href="/clients/<%=client.id%>/edit">Edit client</a> or
 
 <a href="/clients/<%=client.id%>">show client</a>
+<br>
+<br>
 
 <%end%>
 <br>

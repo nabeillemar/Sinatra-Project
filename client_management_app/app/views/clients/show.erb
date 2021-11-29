@@ -1,23 +1,17 @@
+<h1>Client's Dashboard</h1>
+
+<br>
+
+Client Name: <%=@client.name%>
+<br><br>
+Enrollment Date: <%=@client.enrollment_date%>
+<br><br>
+Casenote: <%=@client.case_note%>
 <br><br>
 
-
-
-Client Name:<%=@client.name%>
-<br><br>
-Enrollment Date:<%=@client.enrollment_date%>
-<br><br>
-Casenote:<%=@client.case_note%>
+Client ID: <%=@client.id%>
 <br><br>
 
-ID:<%=@client.id%>
-<br><br>
-
-UserID:<%=@user.id%>
-
-<br><br>
-<%=@client.user.name%>
-
-<br><br>
 
 <a href="/clients/<%=@client.id%>/edit">Edit client</a>
 
@@ -28,10 +22,7 @@ UserID:<%=@user.id%>
   <input type="submit" value="delete">
 </form>
 
-<br><br>
+<br>
 
-<a href='/clients/'>HomePage</a>
+<a href='/clients/'>HomePage</a>  <a href="/logout">Logout</a>
 
-<br><br>
-
-<a href="/logout">Logout</a>
