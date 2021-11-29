@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       end
       
     post '/signup' do 
-        if @user = User.find_by(email: params[:email])
+        if @user = User.find_by(email: params[:email]) || @user = User.find_by(username: params[:username])
             redirect to "/signup"
         elsif 
             params[:username] == "" || params[:password] == "" || params[:name] == ""
